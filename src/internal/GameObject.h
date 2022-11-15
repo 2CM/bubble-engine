@@ -19,6 +19,10 @@ class GameObject {
         string tag;
         Scene* scene;
 
+
+        /*
+        Adds a component to the GameObject
+        */
         template <typename T>
         T AddComponent() {
             components.push_back(new T());
@@ -31,6 +35,9 @@ class GameObject {
             return *(T*)(components[components.size()-1]);
         }
         
+        /*
+        Gets a component from the GameObject
+        */
         template <class T>
         T GetComponent() {
             // cout << typeid(T).name() << " | ";
@@ -52,8 +59,8 @@ class GameObject {
             scene = currentScene;
         }
 
-        GameObject(string goName) {
-            name = goName;
+        GameObject(string name) {
+            this->name = name;
             addToScene();
         }
 };

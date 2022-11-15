@@ -5,7 +5,7 @@
 
 #include "Transform.h"
 
-#include "../math/Vector2.h"
+#include "../math.h"
 
 class Player : public Component {
     public:
@@ -14,7 +14,7 @@ class Player : public Component {
 
             Transform transform = gameObject->GetComponent<Transform>();
 
-            transform.translate(Vector2(1,2));
+            transform.translate(Vector3(1,2,0));
 
             cout << transform.position << endl;
 

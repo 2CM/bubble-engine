@@ -4,7 +4,7 @@
 #include "internal/Component.h"
 #include "internal/Scene.h"
 
-#include "math/Vector2.h"
+#include "math.h"
 
 #include "components/Transform.h"
 #include "components/Player.h"
