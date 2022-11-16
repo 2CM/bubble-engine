@@ -9,7 +9,7 @@ Scene::Scene(string sceneName) {
 
 void Scene::printRecur(vector<GameObject*> children, int depth) {
     for(auto i : children) {
-        cout << string("\t", depth) <<  i->name << endl;
+        cout << repeatString("....", depth) <<  i->name << endl;
 
 
 

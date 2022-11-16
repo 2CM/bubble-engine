@@ -36,6 +36,11 @@ class Transform : public Component {
                     cout << "found it" << endl;
 
                     //remove from parent (either nullptr or Transform*)
+                    if(parent == nullptr) {
+                        this->gameObject->scene->children.erase(this->gameObject->scene->children.begin()+i);
+                    } else {
+                        parent->children.erase(parent->children.begin()+i);
+                    }
                 }
             }            
 
