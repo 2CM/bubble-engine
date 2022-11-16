@@ -12,11 +12,11 @@ class Player : public Component {
         void Start() {
             cout << "setting up :)" << endl;
 
-            Transform transform = gameObject->GetComponent<Transform>();
+            Transform* transform = gameObject->GetComponent<Transform>();
 
-            transform.translate(Vector3(1,2,0));
+            transform->translate(Vector3(1,2,0));
 
-            cout << transform.position << endl;
+            cout << transform->position << endl;
 
             cout << gameObject->scene->name << endl;
         }

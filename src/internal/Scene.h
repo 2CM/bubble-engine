@@ -4,19 +4,19 @@
 #include <vector>
 #include <map>
 
+using namespace std;
+
 #include "GameObject.h"
-
-class Scene;
-
-extern Scene* currentScene;
+// #include "../components/Transform.h"
 
 class Scene {
     public:
         string name;
-        vector<GameObject*> gameObjects;
+        vector<GameObject*> children;
 
-        Scene(string sceneName) {
-            name = sceneName;
-            currentScene = this;
-        }
+        Scene(string sceneName);
+
+        void printRecur(vector<GameObject*> children, int depth);
+
+        void print();
 };

@@ -1,15 +1,12 @@
 #pragma once
 
-#include <string>
-#include <vector>
-#include <map>
+// #include "Component.h"
+// #include "Scene.h"
 
-#include "Component.h"
-#include "Scene.h"
+class Component;
+class Scene;
 
-Scene* currentScene;
-
-using namespace std;
+// Scene* currentScene;
 
 class GameObject {
     public:
@@ -19,48 +16,21 @@ class GameObject {
         string tag;
         Scene* scene;
 
+        GameObject(string name);
 
         /*
         Adds a component to the GameObject
         */
         template <typename T>
-        T AddComponent() {
-            components.push_back(new T());
-            components[components.size()-1]->COMP_NAME = typeid(T).name();
-            components[components.size()-1]->gameObject = this;
-            components[components.size()-1]->Awake();
-
-            typeToIndexMap.insert({ typeid(T).name(), components.size()-1 });
-
-            return *(T*)(components[components.size()-1]);
-        }
+        T* AddComponent();
         
         /*
         Gets a component from the GameObject
         */
         template <class T>
-        T GetComponent() {
-            // cout << typeid(T).name() << " | ";
-            // cout << components[0]->COMP_NAME << endl;
+        T* GetComponent();
+        
+        void StartAll();
 
-            int compIndex = typeToIndexMap[typeid(T).name()];
-
-            return *(T*)(components[compIndex]);
-        }
-
-        void StartAll() {
-            for(Component* i : components) {
-                i->Start();
-            }
-        }
-
-        void addToScene() {
-            currentScene->gameObjects.push_back(this);
-            scene = currentScene;
-        }
-
-        GameObject(string name) {
-            this->name = name;
-            addToScene();
-        }
+        void addToScene();
 };

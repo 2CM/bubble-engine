@@ -1,9 +1,9 @@
 #pragma once
 
 #include <string>
+// #include "Scene.h"
 
-// #include "GameObject.h"
-class GameObject;
+#include "GameObject.h"
 
 using namespace std;
 
