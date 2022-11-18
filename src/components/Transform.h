@@ -51,7 +51,19 @@ class Transform : public Component {
             p->childCount++;
         }
 
+        //finds a child by index
         Transform* GetChild(int index) {
             return children.at(index);
+        }
+
+        //finds a child by name and returns it
+        Transform* Find(string name) {
+            for(auto i : children) {
+                if(i->gameObject->name == name) {
+                    return i;
+                }
+            }
+
+            return;
         }
 };
