@@ -40,6 +40,7 @@ class Transform : public Component {
                         this->gameObject->scene->children.erase(this->gameObject->scene->children.begin()+i);
                     } else {
                         parent->children.erase(parent->children.begin()+i);
+                        parent->childCount--;
                     }
                 }
             }            
@@ -47,6 +48,7 @@ class Transform : public Component {
             parent = p;
 
             p->children.push_back(this);
+            p->childCount++;
         }
 
         Transform* GetChild(int index) {
